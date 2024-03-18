@@ -2,5 +2,5 @@
 
 
 Hillary Kiprotich <hillarykiprotich35@gmail.com>
-Merlix Gikunju <>
+Merlix Gikunju <gmerlix@yahoo.com>
 Ken Ryan <kenryan49@gmail.com>
