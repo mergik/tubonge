@@ -1,5 +1,8 @@
 const bcrypt = require("bcryptjs");
+const uuidv4 = require("uuid").v4;
 const User = require("../models/UserModel");
+
+const sessions = {};
 
 // Register a new user
 const register = async (req, res) => {
@@ -63,32 +66,44 @@ const register = async (req, res) => {
 
 // Login a user
 const login = async (req, res) => {
-  try{
-    const { username, password } = req.body
+  try {
+    const { username, password } = req.body;
 
-    const user = await User.findOne({ username })
-    const passwordComparison = await bcrypt.compare(password, user?.password || "")
+    const user = await User.findOne({ username });
+    const passwordComparison = await bcrypt.compare(
+      password,
+      user?.password || ""
+    );
 
-    if(!user || !passwordComparison){
-      res.status(400).json({error: 'Invalid username or password!'})
-    }
+    if (!user || !passwordComparison) {
+      res.status(400).json({ error: "Invalid username or password!" });
+    } else {
+      const sessionId = uuidv4();
 
-    else {
+      console.log(sessionId);
+
+      // set cookie
+      sessions[sessionId] = { username, userId: user._id };
+      res.set("Set-Cookie", `session=${sessionId}`);
+
       res.status(200).json({
         _id: user._id,
         fullName: user.fullName,
         username: user.username,
-        profilePic: user.profilePic
-      })
+        profilePic: user.profilePic,
+      });
     }
-  }catch(error){
-    console.log('Error encountered during login!', error.message)
-    res.status(500).json({error: "internal server error!"})
+  } catch (error) {
+    console.log("Error encountered during login!", error.message);
+    res.status(500).json({ error: "internal server error!" });
   }
 };
 
 // logout a user
 const logout = async (req, res) => {
+  const sessionId = req.headers.cookie?.split("=")[1];
+  delete sessions[sessionId];
+  res.set("Set-Cookie", "session=; expires= Thu, 01 Jan 1970 00:00:00 GMT");
   res.send("logout");
   console.log("logout");
 };
