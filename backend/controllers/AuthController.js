@@ -53,7 +53,7 @@ const register = async (req, res) => {
       profilePic: newUser.profilePic,
     });
 
-    // res.send("signup");
+    //res.send("signup");
     console.log("signup");
   } catch (error) {
     console.error("Error in SignUp controller: ", error.message);
@@ -63,8 +63,28 @@ const register = async (req, res) => {
 
 // Login a user
 const login = async (req, res) => {
-  res.send("login");
-  console.log("login");
+  try{
+    const { username, password } = req.body
+
+    const user = await User.findOne({ username })
+    const passwordComparison = await bcrypt.compare(password, user?.password || "")
+
+    if(!user || !passwordComparison){
+      res.status(400).json({error: 'Invalid username or password!'})
+    }
+
+    else {
+      res.status(200).json({
+        _id: user._id,
+        fullName: user.fullName,
+        username: user.username,
+        profilePic: user.profilePic
+      })
+    }
+  }catch(error){
+    console.log('Error encountered during login!', error.message)
+    res.status(500).json({error: "internal server error!"})
+  }
 };
 
 // logout a user
