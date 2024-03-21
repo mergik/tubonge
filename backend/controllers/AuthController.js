@@ -1,6 +1,6 @@
 const bcrypt = require("bcryptjs");
 const User = require("../models/UserModel");
-//const generateTokenandSetCookie = require("../utils/generateToken");
+const generateTokenandSetCookie = require("../utils/generateToken");
 
 
 // Register a new user

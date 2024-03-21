@@ -14,9 +14,11 @@ const app = express();
 
 // middleware
 app.use(express.json()); // for parsing application/json (from req.body)
+app.use(cookieParser());
+
 app.use("/api/auth", AuthRoutes);
 app.use("/api/message", messageRoute);
-app.use(cookieParser());
+
 
 app.get("/", (req, res) => {
   res.send("Welcome to TubongeChat");
