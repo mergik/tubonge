@@ -1,8 +1,10 @@
 //import express
 const express = require("express");
 const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser");
 const connectDB = require("./DB/connectDB");
 const AuthRoutes = require("./routes/AuthRoutes");
+const messageRoute = require("./routes/messageRoutes");
 
 //import dotenv
 dotenv.config();
@@ -13,6 +15,8 @@ const app = express();
 // middleware
 app.use(express.json()); // for parsing application/json (from req.body)
 app.use("/api/auth", AuthRoutes);
+app.use("/api/message", messageRoute);
+app.use(cookieParser());
 
 app.get("/", (req, res) => {
   res.send("Welcome to TubongeChat");
