@@ -2,12 +2,12 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
+
 const connectDB = require("./DB/connectDB");
 const AuthRoutes = require("./routes/AuthRoutes");
 const messageRoute = require("./routes/messageRoutes");
 
-//import dotenv
-dotenv.config();
+dotenv.config(); //import dotenv
 const PORT = process.env.PORT || 5000;
 
 const app = express();
