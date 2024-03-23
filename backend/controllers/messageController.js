@@ -45,13 +45,12 @@ const getMessages = async (req, res) => {
     const senderId = req.user._id;
 
     const conversation = await Conversation.findOne({
-      participants: { $all: [senderId, userToChatId] },
+      members: { $all: [senderId, userToChatId] }
     }).populate("messages"); // Not reference but actual messages
 
     if(!conversation) return res.status(200).json([]);
 
     const messages = conversation.messages;
-
     res.status(200).json(messages);
   } catch (error) {
     console.error("Error in getMessages controller: ", error.message);
@@ -59,5 +58,4 @@ const getMessages = async (req, res) => {
   }
 };
 
-module.exports = sendMessage;
-module.exports = getMessages;
+module.exports = { sendMessage, getMessages }
