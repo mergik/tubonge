@@ -1,7 +1,13 @@
+import Home from "./pages/home/Home";
+import Login from "./pages/login/Login";
+import SignUp from "./pages/signup/Signup";
+
 export default function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <div className="p-4 h-screen flex items-center justify-center">
+      <Home />
+      
+      
+    </div>
   )
 }

@@ -5,7 +5,25 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    colors: {
+      dark: 'var(--color-dark)',
+      blackish: 'var(--color-blackish)',
+      darkish: 'var(--color-darkish)',
+      light: 'var(--color-light)',
+      whiteish: 'var(--color-whiteish)',
+      blueish: 'var(--color-blueish)',
+      purpleish: 'var(--color-purpleish)',
+      orangeish: 'var(--color-orangeish)'
+    },
+    fontFamily: {
+      poppins: ['Poppins', 'sans-serif'],
+      grotesk: ['Space Grotesk', 'sans-serif'],
+    },
+    extend: {
+      // backgroundImage: {
+      //   'hero-pattern': "url('/assets/groovy.svg')",
+      // }
+    },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 }
