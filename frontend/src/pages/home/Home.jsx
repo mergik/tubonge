@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+import Sidebar from '../../components/sidebar/Sidebar';
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div className='flex h-full max-h-full rounded-lg overflow-hidden bg-dark justify-stretch'>
+      <Sidebar />
+      {/* <MessageContainer /> */}
+    </div>
   )
-}
+};
 
-export default Home
+export default Home;
