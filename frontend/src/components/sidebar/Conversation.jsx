@@ -15,7 +15,7 @@ const Conversation = () => {
         </div>
         <div className='flex flex-col flex-1'>
             <div className='flex flex-col'>
-                <p className='font-poppins font-semibold text-light'>John Doe</p>
+                <p className='font-poppins font-semibold text-light'>Jane Doe</p>
                 <p className='font-poppins font-thin text-xs text-light'> Lorem ipsum dolor sit amet kasd in... </p>
             </div>
         </div>
