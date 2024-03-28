@@ -90,7 +90,9 @@ const SignUp = () => {
           <GenderCheckbox onCheckboxChange={checkboxChanger} selectedGender={inputs.gender} />
 
           <div className='flex mt-5 items-center'>
-            <button className="btn btn-md font-poppins text-light">Sign up</button>
+            <button className="btn btn-md font-poppins text-light" disabled={loading}>
+              {loading ? <span className='loading loading-spinner'></span> : "Sign up" }
+            </button>
             <Link to={'/login'} className="link link-hover text-dark text-sm ml-5 inline-block font-poppins">Already have an account?</Link>
           </div>
         </form>
