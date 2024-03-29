@@ -11,7 +11,7 @@ const Message = ({ message }) => {
   const profilePic = fromMe ? authUser.profilePic: selectedConversation?.profilePic
   const fullName = fromMe ? authUser.fullName: selectedConversation?.fullName
   const messageTimestamp = extractTime(message.createdAt)
-  const bubbleBgColor = fromMe ? 'bg-blue-500' : ''
+  const bubbleBgColor = !fromMe ? 'bg-purpleish' : ''
 
   return (
     <div className={`chat ${chatClassName} font-poppins`}>
@@ -21,8 +21,8 @@ const Message = ({ message }) => {
             </div>
         </div>
         <div className="chat-header">
-            {/* Jane Doe
-            <time className="text-xs opacity-50 pl-1">{message.createdAt}</time> */}
+            {fullName}
+            {/* <time className="text-xs opacity-50 pl-1">{message.createdAt}</time> */}
         </div>
         <div className={`chat-bubble text-light ${bubbleBgColor}`}>{message.message}</div>
         <time className="text-xs opacity-50 pl-1">{messageTimestamp}</time>
