@@ -1,19 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Messages from "./Messages";
 import MessageInput from "./MessageInput";
+import useConversation from "../../zustand/useConversation";
+import { useAuthContext } from "../../context/AuthContext";
 
 const MessageContainer = () => {
-  const noChatSelected = true;
+  const {selectedConversation, setSelectedConversation} = useConversation()
+  useEffect(() => {
+    //unmounts previous selected chats
+    return () => setSelectedConversation(null)
+  }, [setSelectedConversation])
   return (
     <div className="flex flex-col w-full md:min-w-[450px]">
-      {noChatSelected ? (
+      {!selectedConversation ? (
         <NoChatSelected />
       ) : (
         <>
           {/* Header */}
           <div className="px-4 py-2 m-5">
             <span className="text-light font-grotesk font-semibold">
-              Jane Doe
+              {selectedConversation.fullName}
             </span>
           </div>
 
@@ -28,10 +34,11 @@ const MessageContainer = () => {
 export default MessageContainer;
 
 const NoChatSelected = () => {
+  const {authUser} = useAuthContext()
   return (
     <div className="flex items-center justify-center w-full h-full">
       <div className="px-4 text-center sm:text-lg md:text-xl text-light font-semibold font-grotesk flex flex-col items-center gaps-2">
-        <p>Welcome John Doe!</p>
+        <p>Welcome {authUser.fullName}!</p>
         <p>Select a chat to start messaging.</p>
         
         {/* Message icon from hero icons */}

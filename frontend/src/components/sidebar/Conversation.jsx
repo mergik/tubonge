@@ -1,13 +1,24 @@
 import React from 'react';
+import useConversation from '../../zustand/useConversation';
+import { useSocketContext } from '../../context/socketContext';
 
-const Conversation = () => {
+const Conversation = ({ conversation }) => {
+    const {messages, selectedConversation, setSelectedConversation} = useConversation()
+
+    const isSelected = selectedConversation?._id === conversation._id
+    const {onlineUsers} = useSocketContext()
+    const isOnline = onlineUsers.includes(conversation._id)
+
   return (
     <>
 
-    <div className='flex gap-2 items-center hover:bg-darkish rounded-2xl m-2 p-2 cursor-pointer'>
-        <div className="avatar online indicator">
+    <div 
+        className={`flex gap-2 items-center hover:bg-darkish rounded-2xl m-2 p-2 cursor-pointer 
+        ${isSelected ? "bg-purpleish": ""} `} 
+        onClick={() => setSelectedConversation(conversation)}>
+        <div className={`avatar  indicator ${isOnline ? "online" : ""}`}>
             <div className="w-12 rounded-2xl">
-                <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" alt='user avatar'/>
+                <img src={conversation.profilePic} alt='user avatar'/>
             </div>
             {/* Typing & Message Indicators */}
             {/* <span className="indicator-item badge badge-primary">typing…</span>
@@ -15,8 +26,8 @@ const Conversation = () => {
         </div>
         <div className='flex flex-col flex-1'>
             <div className='flex flex-col'>
-                <p className='font-poppins font-semibold text-light'>Jane Doe</p>
-                <p className='font-poppins font-thin text-xs text-light'> Lorem ipsum dolor sit amet kasd in... </p>
+                <p className='font-poppins font-semibold text-light'>{conversation.fullName}</p>
+                <p className='font-poppins font-thin text-xs text-light'> {messages.message} </p>
             </div>
         </div>
         
