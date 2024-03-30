@@ -17,6 +17,7 @@ const Login = () => {
       <div className='w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0'>
         <h1 className='text-3xl font-grotesk font-semibold text-dark'>
           Login
+          <span className='text-primary'> Tubonge</span>
         </h1>
 
         <div className="divider"></div> 
