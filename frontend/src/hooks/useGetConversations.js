@@ -16,7 +16,8 @@ const useGetConversations = () => {
             }
             setConversations(data)
         }catch(error){
-            toast.error(error.message)
+            toast.error('Problem getting your conversations, please refresh');
+            // toast.error(error.message) verbose for dev only
         }finally{
             setLoading(false)
         }

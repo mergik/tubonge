@@ -21,9 +21,11 @@ const useLogout = () => {
 
         localStorage.removeItem("chat-user")
         setAuthUser(null)
+        toast.success('Logged out!');
 
     }catch(error){
-        toast.error(error.message)
+        toast.error('We encountered an issue while trying to log you out, please try again');
+        // toast.error(error.message) verbose for dev only
     }finally{
         setLoading(false)
     }
