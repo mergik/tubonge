@@ -25,10 +25,22 @@ const SignUp = () => {
   }
 
   return (
-    <div className='flex flex-col items-center justify-center min-w-96 mx-auto'>
+    <div className='flex flex-col items-center justify-center min-w-96 mx-auto '>
+      {/* Logo */}
+      <div className="navbar bg-dark rounded-t-lg">
+        <div className="avatar">
+          <div className="w-16 rounded">
+            <img src="./src/assets/tubonge-icon.jpeg" />
+          </div>
+        </div>
+
+        <h1 className="text-3xl mx-3 font-grotesk font-semibold text-light">Tubonge</h1>
+      </div>
+
       <div className='w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0'>
         <h1 className='text-3xl font-grotesk font-semibold text-dark'>
           Create an account
+          {/* <span className='text-purpleish'> Tubonge</span> */}
         </h1>
 
         <div className="divider"></div> 
@@ -90,10 +102,12 @@ const SignUp = () => {
           <GenderCheckbox onCheckboxChange={checkboxChanger} selectedGender={inputs.gender} />
 
           <div className='flex mt-5 items-center'>
-            <button className="btn btn-md font-poppins text-light" disabled={loading}>
+            {/* Signup Button */}
+            <button className="btn btn-md mt-2 font-poppins bg-dark text-light hover:bg-purpleish" disabled={loading}>
               {loading ? <span className='loading loading-spinner'></span> : "Sign up" }
             </button>
-            <Link to={'/login'} className="link link-hover text-dark text-sm ml-5 inline-block font-poppins">Already have an account?</Link>
+            {/* To login link */}
+            <Link to={'/login'} className="link link-hover text-dark text-sm ml-5 inline-block font-poppins hover:text-purpleish">Already have an account?</Link>
           </div>
         </form>
       </div>
