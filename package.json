@@ -1,0 +1,12 @@
+{
+  "name": "tubonge",
+  "version": "0.4.0",
+  "description": "Simple realtime chat application using Websockets and MongoDB",
+  "main": "/backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "author": "",
+  "license": "ISC"
+}
