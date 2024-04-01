@@ -1,0 +1,23 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "this folder will handle our backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon /backend/server.js"
+  },
+  "author": "Mergik, Ken & Hillary",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.5.0",
+    "mongoose": "^8.2.1",
+    "nodemon": "^3.1.0",
+    "socket.io": "^4.7.5",
+    "uuid": "^9.0.1"
+  }
+}
