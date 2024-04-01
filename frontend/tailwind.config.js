@@ -19,11 +19,7 @@ export default {
       poppins: ['Poppins', 'sans-serif'],
       grotesk: ['Space Grotesk', 'sans-serif'],
     },
-    extend: {
-      // backgroundImage: {
-      //   'hero-pattern': "url('/assets/groovy.svg')",
-      // }
-    },
+    extend: {},
   },
   plugins: [require("daisyui")],
 }
