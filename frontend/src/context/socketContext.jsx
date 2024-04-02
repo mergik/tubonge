@@ -16,7 +16,7 @@ export const SocketContextProvider = ({ children }) => {
 
     useEffect(() => {
         if(authUser){
-            const socket = io("https://tubonge-kipz.onrender.com/", {
+            const socket = io("https://tubonge-kipz.onrender.com/", { // http://localhost:8000
                 query: {
                     userId: authUser._id,
                 }

@@ -18,7 +18,7 @@ const Login = () => {
       <div className="navbar bg-dark rounded-t-lg">
         <div className="avatar">
           <div className="w-16 rounded">
-            <img src="./src/assets/tubonge-icon.jpeg" />
+            <img src="/tubonge-icon.jpeg" />
           </div>
         </div>
 
