@@ -23,13 +23,9 @@ Simple realtime chat application using Websockets and MongoDB
 - Online indicator
 - Auto generated avatar
 
-## Screenshots
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
 ## Live Demo
 
-Insert gif or link to demo
+[Deployed Version 0.4](https://tubonge-kipz.onrender.com/)
 
 ## Run Locally
 
@@ -78,13 +74,18 @@ Fill in the variables in the formats shown in comments.
 Start the backend server
 
 ```bash
-  npm start
+  npm run dev
   // server will start on port 5000 if you didn't specify a port in .env
 ```
 
-## Lessons Learned
+## Deployment
 
-What did you learn while building this project? What challenges did you face and how did you overcome them?
+To build this project run this command in the root directory
+
+```bash
+  npm run build
+  npm start
+```
 
 ## Authors
 
